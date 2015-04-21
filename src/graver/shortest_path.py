@@ -2,6 +2,20 @@ from graver import PriorityQueue
 from math import isinf
 
 
+def extract_path(previous, target):
+    path = []
+    elem = target
+    while True:
+        path.insert(0, elem)
+
+        if elem not in previous:
+            break
+
+        elem = previous[elem]
+
+    return path
+
+
 def shortest_path(graph, source, target):
     source = graph.find_vertex(source)
     target = graph.find_vertex(target)
@@ -21,7 +35,7 @@ def shortest_path(graph, source, target):
         if closest == target:
             break
 
-        for edge in closest.edges_from(closest):
+        for edge in closest.outgoing_edges():
             # edge is not added to this graph
             if edge not in graph.edges:
                 continue
@@ -47,15 +61,7 @@ def shortest_path(graph, source, target):
 
                 pq.push(neigh, alt)
 
-    path = []
-    elem = target
-    while True:
-        path.insert(0, elem)
-
-        if elem not in previous:
-            break
-
-        elem = previous[elem]
+    path = extract_path(previous, target)
 
     if source not in path or target not in path:
         raise IndexError("Cannot find path")
