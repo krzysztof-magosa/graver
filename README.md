@@ -1,5 +1,8 @@
 # GraVer (Graph, Vertex)
 
+[![Build Status](https://travis-ci.org/krzysztof-magosa/graver.svg?branch=master)](https://travis-ci.org/krzysztof-magosa/graver)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/krzysztof-magosa/graver/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/krzysztof-magosa/graver/?branch=master)
+
 My little experiment in Python with graphs and Dijkstra algo.  
 Don't treat it too seriously, it's done just for fun :-)
 
