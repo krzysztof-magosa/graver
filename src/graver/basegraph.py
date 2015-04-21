@@ -12,12 +12,15 @@ class BaseGraph(object):
             assert(vertex in self.vertices)
             return vertex
         else:
-            for item in self.vertices:
-                if item.id == vertex:
-                    return item
+            return self.get_vertex(vertex)
 
-            raise IndexError("Vertex not found in graph")
+    def get_vertex(self, id):
+        for item in self.vertices:
+            if item.id == id:
+                return item
 
+        raise IndexError("Vertex not found in graph")
+        
     def add_vertex(self, id):
         vertex = Vertex(id)
         self.vertices.add(vertex)
